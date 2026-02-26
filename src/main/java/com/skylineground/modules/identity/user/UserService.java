@@ -15,6 +15,10 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public UserResponse create(UserRequest dto) {
+        if (userRepository.existsByEmail(dto.email())) {
+            throw new EmailAlreadyExistsException();
+        }
+
         var user = userMapper.toEntity(dto);
 
         String encodedPassword = passwordEncoder.encode(user.getPassword());
