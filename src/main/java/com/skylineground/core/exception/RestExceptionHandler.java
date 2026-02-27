@@ -1,6 +1,7 @@
 package com.skylineground.core.exception;
 
 import com.skylineground.core.constant.AppErrorCode;
+import com.skylineground.modules.identity.auth.InvalidCredentialsException;
 import com.skylineground.modules.identity.user.EmailAlreadyExistsException;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -17,6 +18,11 @@ public class RestExceptionHandler {
 
     @ExceptionHandler(EmailAlreadyExistsException.class)
     public ProblemDetail handleEmailAlreadyExistsException(EmailAlreadyExistsException ex) {
+        return buildProblemDetail(ex.getErrorCode());
+    }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ProblemDetail handleInvalidCredentialsException(InvalidCredentialsException ex) {
         return buildProblemDetail(ex.getErrorCode());
     }
 
