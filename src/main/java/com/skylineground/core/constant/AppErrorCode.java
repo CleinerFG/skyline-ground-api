@@ -6,7 +6,8 @@ import org.springframework.http.HttpStatus;
 @Getter
 public enum AppErrorCode {
     INVALID_JSON(HttpStatus.BAD_REQUEST),
-    EMAIL_ALREADY_EXISTS(HttpStatus.CONFLICT);
+    EMAIL_ALREADY_EXISTS(HttpStatus.CONFLICT),
+    INVALID_CREDENTIALS(HttpStatus.UNAUTHORIZED);
 
     private final HttpStatus httpStatus;
 
