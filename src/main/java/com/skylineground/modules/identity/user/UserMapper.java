@@ -19,6 +19,7 @@ public class UserMapper {
                 .id(entity.getId())
                 .name(entity.getName())
                 .email(entity.getEmail())
+                .systemRole(entity.getSystemRole())
                 .build();
     }
 }
