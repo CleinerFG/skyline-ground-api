@@ -1,5 +1,6 @@
 package com.skylineground.modules.identity.user;
 
+import com.fasterxml.uuid.impl.TimeBasedEpochGenerator;
 import com.skylineground.modules.identity.user.dto.UserRequest;
 import com.skylineground.modules.identity.user.dto.UserResponse;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
+    private final TimeBasedEpochGenerator uuidGenerator;
 
     public UserResponse create(UserRequest dto) {
         if (userRepository.existsByEmail(dto.email())) {
@@ -20,6 +22,7 @@ public class UserService {
         }
 
         var user = userMapper.toEntity(dto);
+        user.setExternalId(uuidGenerator.generate());
 
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
