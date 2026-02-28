@@ -54,6 +54,9 @@ DB_POSTGRES_PASSWORD=password
 DB_POSTGRES_URL=jdbc:postgresql://localhost:5432/skyline-ground
 JWT_SECRET=jwt-secret-hash
 JWT_ISSUER=skyline-ground
+ADMIN_NAME=my-admin
+ADMIN_EMAIL=admin@system.com
+ADMIN_PASSWORD=admin
 ```
 
 - Configure sua IDE para usar variáveis de ambiente.
