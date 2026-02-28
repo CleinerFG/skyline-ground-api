@@ -1,10 +1,10 @@
 package com.skylineground.modules.identity.auth.dto;
 
-public record TokenResponse(
+public record LoginResponse(
         String token,
         String tokenType
 ) {
-    public TokenResponse(String token) {
+    public LoginResponse(String token) {
         this(token, "Bearer");
     }
 }

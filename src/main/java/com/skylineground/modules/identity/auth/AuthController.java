@@ -1,7 +1,7 @@
 package com.skylineground.modules.identity.auth;
 
 import com.skylineground.modules.identity.auth.dto.LoginRequest;
-import com.skylineground.modules.identity.auth.dto.TokenResponse;
+import com.skylineground.modules.identity.auth.dto.LoginResponse;
 import com.skylineground.modules.identity.user.UserService;
 import com.skylineground.modules.identity.user.dto.UserRequest;
 import com.skylineground.modules.identity.user.dto.UserResponse;
@@ -28,8 +28,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest dto) {
-        TokenResponse response = loginService.authenticate(dto);
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest dto) {
+        LoginResponse response = loginService.authenticate(dto);
         return ResponseEntity.ok(response);
     }
 }
