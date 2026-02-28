@@ -1,10 +1,13 @@
 package com.skylineground.core.security;
 
+import com.skylineground.modules.identity.user.SystemRole;
 import lombok.Builder;
+
+import java.util.UUID;
 
 @Builder
 public record TokenPayload(
-        Long id,
-        String email
+        UUID externalId,
+        SystemRole systemRole
 ) {
 }

@@ -5,6 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
+import com.skylineground.modules.identity.user.SystemRole;
 import com.skylineground.modules.identity.user.User;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 
 @Component
 public class TokenService {
@@ -46,8 +48,7 @@ public class TokenService {
         Instant now = Instant.now();
         return JWT.create()
                 .withIssuer(issuer)
-                .withSubject(user.getEmail())
-                .withClaim("id", user.getId())
+                .withSubject(user.getExternalId().toString())
                 .withClaim("systemRole", user.getSystemRole().name())
                 .withIssuedAt(now)
                 .withExpiresAt(now.plusSeconds(expirationSeconds))
@@ -60,9 +61,12 @@ public class TokenService {
         try {
             DecodedJWT jwt = verifier.verify(token);
 
+            var externalId = UUID.fromString(jwt.getSubject());
+            var systemRole = SystemRole.valueOf(jwt.getClaim("systemRole").asString());
+
             return Optional.of(TokenPayload.builder()
-                    .id(jwt.getClaim("id").asLong())
-                    .email(jwt.getSubject())
+                    .externalId(externalId)
+                    .systemRole(systemRole)
                     .build());
 
         } catch (JWTVerificationException ex) {
