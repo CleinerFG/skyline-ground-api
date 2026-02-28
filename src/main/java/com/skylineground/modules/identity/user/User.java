@@ -2,6 +2,8 @@ package com.skylineground.modules.identity.user;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -30,6 +32,11 @@ public class User implements UserDetails {
 
     @Column(name = "password_hash", nullable = false)
     private String password;
+
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(name = "system_role", nullable = false, columnDefinition = "system_role")
+    @Builder.Default
+    private SystemRole systemRole = SystemRole.MEMBER;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
