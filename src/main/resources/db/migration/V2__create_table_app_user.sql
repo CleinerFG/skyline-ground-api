@@ -6,6 +6,7 @@ CREATE TABLE app_user
     name          VARCHAR(100) NOT NULL,
     email         VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
+    system_role   system_role  NOT NULL DEFAULT 'MEMBER',
     created_at    TIMESTAMPTZ  NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at    TIMESTAMPTZ,
 
