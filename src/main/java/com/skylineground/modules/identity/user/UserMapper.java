@@ -16,7 +16,7 @@ public class UserMapper {
 
     public UserResponse toResponse(User entity) {
         return UserResponse.builder()
-                .id(entity.getId())
+                .externalId(entity.getExternalId())
                 .name(entity.getName())
                 .email(entity.getEmail())
                 .systemRole(entity.getSystemRole())
