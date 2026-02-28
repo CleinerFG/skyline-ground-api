@@ -25,7 +25,7 @@ public class TokenService {
     @Value("${app.security.jwt.issuer}")
     private String issuer;
 
-    @Value("${app.security.jwt.expiration-seconds:3600}")
+    @Value("${app.security.jwt.expiration-seconds}")
     private long expirationSeconds;
 
     private Algorithm algorithm;
