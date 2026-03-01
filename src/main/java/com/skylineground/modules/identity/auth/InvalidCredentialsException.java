@@ -1,13 +1,10 @@
 package com.skylineground.modules.identity.auth;
 
-import com.skylineground.core.constant.AppErrorCode;
+import com.skylineground.core.exception.BusinessException;
+import com.skylineground.modules.identity.IdentityErrorCode;
 
-public class InvalidCredentialsException extends RuntimeException {
+public class InvalidCredentialsException extends BusinessException {
     public InvalidCredentialsException() {
-        super(AppErrorCode.INVALID_CREDENTIALS.name());
+        super(IdentityErrorCode.INVALID_CREDENTIALS);
     }
-
-   public AppErrorCode getErrorCode(){
-        return AppErrorCode.INVALID_CREDENTIALS;
-   }
 }

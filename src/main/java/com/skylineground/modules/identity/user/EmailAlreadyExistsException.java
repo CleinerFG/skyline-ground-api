@@ -1,13 +1,11 @@
 package com.skylineground.modules.identity.user;
 
-import com.skylineground.core.constant.AppErrorCode;
+import com.skylineground.core.exception.BusinessException;
+import com.skylineground.modules.identity.IdentityErrorCode;
 
-public class EmailAlreadyExistsException extends RuntimeException {
+public class EmailAlreadyExistsException extends BusinessException {
+
     public EmailAlreadyExistsException() {
-        super(AppErrorCode.EMAIL_ALREADY_EXISTS.name());
-    }
-
-    public AppErrorCode getErrorCode() {
-        return AppErrorCode.EMAIL_ALREADY_EXISTS;
+        super(IdentityErrorCode.EMAIL_ALREADY_EXISTS);
     }
 }
