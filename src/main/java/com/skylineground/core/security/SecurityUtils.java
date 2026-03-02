@@ -1,0 +1,19 @@
+package com.skylineground.core.security;
+
+import com.skylineground.core.exception.AuthenticationRequiredException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
+
+@Component
+public class SecurityUtils {
+
+    public TokenPayload getAuthenticatedPayload() {
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new AuthenticationRequiredException();
+        }
+
+        return (TokenPayload) authentication.getPrincipal();
+    }
+}
