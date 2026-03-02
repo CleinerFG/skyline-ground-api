@@ -2,6 +2,7 @@ package com.skylineground.modules.identity.user;
 
 import com.skylineground.modules.identity.user.dto.UserRequest;
 import com.skylineground.modules.identity.user.dto.UserResponse;
+import com.skylineground.modules.identity.user.dto.UserSummary;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,6 +21,14 @@ public class UserMapper {
                 .name(entity.getName())
                 .email(entity.getEmail())
                 .systemRole(entity.getSystemRole())
+                .build();
+    }
+    
+    public UserSummary toSummary(User entity) {
+        return UserSummary.builder()
+                .externalId(entity.getExternalId())
+                .name(entity.getName())
+                .email(entity.getEmail())
                 .build();
     }
 }
