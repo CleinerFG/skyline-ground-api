@@ -1,12 +1,18 @@
 package com.skylineground.modules.identity.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String email);
+
+    @Query("SELECT u.id FROM User u WHERE u.externalId = :externalId")
+    Long findIdByExternalId(@Param("externalId") UUID externalId);
 
     boolean existsByEmail(String email);
 
