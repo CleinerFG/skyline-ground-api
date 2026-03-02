@@ -1,9 +1,9 @@
 package com.skylineground.core.config;
 
 import com.fasterxml.uuid.impl.TimeBasedEpochGenerator;
-import com.skylineground.modules.identity.user.SystemRole;
 import com.skylineground.modules.identity.user.User;
 import com.skylineground.modules.identity.user.UserRepository;
+import com.skylineground.modules.identity.user.constant.SystemRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;

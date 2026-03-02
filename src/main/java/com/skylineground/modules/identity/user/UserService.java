@@ -3,6 +3,7 @@ package com.skylineground.modules.identity.user;
 import com.fasterxml.uuid.impl.TimeBasedEpochGenerator;
 import com.skylineground.modules.identity.user.dto.UserRequest;
 import com.skylineground.modules.identity.user.dto.UserResponse;
+import com.skylineground.modules.identity.user.exception.EmailAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

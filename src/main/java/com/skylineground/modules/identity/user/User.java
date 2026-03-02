@@ -1,6 +1,7 @@
 package com.skylineground.modules.identity.user;
 
 import com.skylineground.core.common.BaseEntity;
+import com.skylineground.modules.identity.user.constant.SystemRole;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;

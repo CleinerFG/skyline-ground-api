@@ -1,6 +1,6 @@
 package com.skylineground.core.security;
 
-import com.skylineground.modules.identity.user.SystemRole;
+import com.skylineground.modules.identity.user.constant.SystemRole;
 import lombok.Builder;
 
 import java.util.UUID;

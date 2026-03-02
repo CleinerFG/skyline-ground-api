@@ -1,4 +1,4 @@
-package com.skylineground.modules.identity.auth;
+package com.skylineground.modules.identity.auth.exception;
 
 import com.skylineground.core.exception.BusinessException;
 import com.skylineground.modules.identity.IdentityErrorCode;
