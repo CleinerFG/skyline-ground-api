@@ -31,7 +31,7 @@ Before you begin, you will need to have installed on your machine:
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/CleinerFG/skyline-ground-api.git](https://github.com/CleinerFG/skyline-ground-api.git)
+git clone https://github.com/cleinerfg/skyline-ground-api.git
 cd skyline-ground-api
 ```
 
@@ -70,7 +70,7 @@ Run > Edit Configurations > Add New Configuration > Aplication
 
 Fill:
 
-- `Name`: Skyline Ground App
+- `Name`: SkylineGroundApp
 - `Main Class`: com.skylineground.SkylineGroundApplication
 - `Environment variables`: ../skyline-ground-api/.env
 
